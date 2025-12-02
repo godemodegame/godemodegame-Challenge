@@ -221,7 +221,7 @@ export function OwnedObjects({ refreshKey, setRefreshKey }: RefreshProps) {
                       {fields.name}
                     </Text>
                     <Badge color="blue" size="2">
-                      Power: {fields.power}
+                      Power: {fields.power} | Experience: {fields.experience}
                     </Badge>
 
                     <Flex align="center" gap="2">

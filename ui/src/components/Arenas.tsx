@@ -217,7 +217,7 @@ export default function Arenas({ refreshKey, setRefreshKey }: RefreshProps) {
                       </Badge>
                     </Flex>
                     <Badge color="blue" size="2">
-                      Power: {warriorFields.power}
+                      Power: {warriorFields.power} | Experience: {warriorFields.experience}
                     </Badge>
 
                     <Text size="3" color="gray">
@@ -242,7 +242,7 @@ export default function Arenas({ refreshKey, setRefreshKey }: RefreshProps) {
                         return (
                           <Flex key={heroId} align="center" gap="2">
                             <Text size="2" style={{ flex: 1 }}>
-                              {heroFields.name} (Power: {heroFields.power})
+                              {heroFields.name} (⚔️: {heroFields.power} | exp: {warriorFields.experience}) 
                             </Text>
                             <Button
                               onClick={() => handleBattle(arenaId, heroId)}

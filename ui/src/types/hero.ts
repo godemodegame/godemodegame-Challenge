@@ -5,6 +5,7 @@ export interface Hero {
   name: string;
   image_url: string;
   power: string;
+  experience: string;
 }
 
 export interface ListHero {

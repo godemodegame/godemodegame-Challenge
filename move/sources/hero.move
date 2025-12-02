@@ -9,6 +9,7 @@ public struct Hero has key, store {
     name: String,
     image_url: String,
     power: u64,
+    experience: u64,
 }
 
 public struct HeroMetadata has key, store {
@@ -30,6 +31,7 @@ public fun create_hero(name: String, image_url: String, power: u64, ctx: &mut Tx
         name: name,
         image_url: image_url,
         power: power,
+        experience: 0,
     };
     // TODO: Transfer the hero to the transaction sender
     public_transfer(hero, ctx.sender());
@@ -42,6 +44,10 @@ public fun create_hero(name: String, image_url: String, power: u64, ctx: &mut Tx
     };
     //TODO: Use transfer::freeze_object() to make metadata immutable
     transfer::freeze_object(metadata);
+}
+
+public fun add_experience(hero: &mut Hero, exp: u64) {
+    hero.experience = hero.experience + exp;
 }
 
 // ========= GETTER FUNCTIONS =========

@@ -108,7 +108,7 @@ export function CreateHero({ refreshKey, setRefreshKey }: RefreshProps) {
           <Card style={{ padding: "16px", background: "var(--gray-a2)" }}>
             <Flex direction="column" gap="2">
               <Text size="3" weight="medium" color="gray">Preview:</Text>
-              <Text size="4">{name} (Power: {power})</Text>
+              <Text size="4">{name} (⚔️: {power} | exp: 0)</Text>
               {imageUrl && (
                 <img 
                   src={imageUrl} 

@@ -48,11 +48,11 @@ public fun create_arena(hero: Hero, ctx: &mut TxContext) {
 }
 
 #[allow(lint(self_transfer))]
-public fun battle(hero: Hero, arena: Arena, ctx: &mut TxContext) {
+public fun battle(mut hero: Hero, arena: Arena, ctx: &mut TxContext) {
     // TODO: Implement battle logic
         // Hints:
         // Destructure arena to get id, warrior, and owner
-    let Arena { id, warrior, owner } = arena;
+    let Arena { id, mut warrior, owner } = arena;
 
     let hero_id = object::id(&hero);
     let warrior_id = object::id(&warrior);
@@ -64,6 +64,8 @@ public fun battle(hero: Hero, arena: Arena, ctx: &mut TxContext) {
         // Hints:  
         // You have to emit this inside of the if else statements
     if(hero.hero_power() > warrior.hero_power()) {
+        hero.add_experience(1);
+
         transfer::public_transfer(hero, ctx.sender());
         transfer::public_transfer(warrior, ctx.sender());
 
@@ -73,6 +75,8 @@ public fun battle(hero: Hero, arena: Arena, ctx: &mut TxContext) {
             timestamp: ctx.epoch_timestamp_ms(),
         });
     } else {
+        warrior.add_experience(1);
+    
         transfer::public_transfer(hero, owner);
         transfer::public_transfer(warrior, owner);
 

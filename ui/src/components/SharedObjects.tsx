@@ -236,7 +236,7 @@ export default function SharedObjects({ refreshKey, setRefreshKey }: RefreshProp
                         </Badge>
                       )}
                     </Flex>
-                    <Badge color="blue" size="2">Power: {heroFields.power}</Badge>
+                    <Badge color="blue" size="2">Power: {heroFields.power} | Experience: {heroFields.experience}</Badge>
                     <Badge color="green" size="2">Price: {priceInSui.toFixed(2)} SUI</Badge>
                     
                     <Text size="3" color="gray">
